@@ -1,23 +1,16 @@
-// const country = fetch('https://restcountries.com/v3.1/name/peru')
-//     .then((response) =>   response.json())
-// .then ((name)=>console.log(name)) 
-    
-
-// console.log(country)
 
 
 
 
-
-
-
-
-
-
-
-  const countries = fetch('https://restcountries.com/v3.1/name/poland')
+function fetchCountries(name) {
+  fetch('https://restcountries.com/v2/all?fields=flag,name,capital,population,languages')
     .then((response) =>   response.json())
-        .then((nameArray) => console.log(nameArray)  ) 
+    .then((nameArrow) => {
+   
+      const ty = nameArrow.find(item => item.name.toLowerCase() === name.toLowerCase())
+    console.log(ty )}) 
         
-    .catch((error)=> console.log('error'));
+    .catch((error)=> console.log('error'));} 
     
+fetchCountries("ukraine");
+
