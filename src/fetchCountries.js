@@ -15,7 +15,7 @@
 
 
 
-  fetch('https://restcountries.com/v3.1/all')
+  const countries = fetch('https://restcountries.com/v3.1/name/poland')
     .then((response) =>   response.json())
         .then((nameArray) => console.log(nameArray)  ) 
         
