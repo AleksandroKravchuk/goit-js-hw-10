@@ -17,4 +17,11 @@ body {
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+  border-top: solid 5px blue;
+  border-bottom: solid 5px yellow;
+}
+#search-box:hover,
+#search-box:focus {
+  outline: none;
+  background-color:lightblue;
 }
