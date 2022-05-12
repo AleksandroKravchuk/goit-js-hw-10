@@ -1,6 +1,7 @@
 import './css/styles.css';
 import fetchCountries from './fetchCountries'
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 var debounce = require('lodash.debounce');
 
 
@@ -13,8 +14,15 @@ const refs = {
 
 
 
+console.log(debounce)
+document.addEventListener(
+  "scroll",
+  _.debounce(() => {
+    console.log("Scroll handler call after 300ms pause");
+  }, 300)
+);
 
-refs.onInput.addEventListener('input', _.debounce(onInput,DEBOUNCE_DELAY));
+// refs.onInput.addEventListener('input', _.debounce(onInput,DEBOUNCE_DELAY));
 
 function onInput(evt) {
   console.log(evt.currentTarget.value);
