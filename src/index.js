@@ -17,8 +17,10 @@ refs.onInput.addEventListener('input', _.debounce(onInput,DEBOUNCE_DELAY));
 
 function onInput(evt) {
   const currentCountry = evt.target.value.trim();
-  
-  fetchCountries(currentCountry).then((contriesArray) => {
+  if (!currentCountry) { 
+    return;
+   }
+    fetchCountries(currentCountry).then((contriesArray) => {
   
     if (contriesArray.length > 10) {
       refs.countryList.innerHTML = '';
@@ -35,6 +37,8 @@ function onInput(evt) {
   })
   .catch((error) => (Notify.failure("Oops, there is no country with that name"))
   )
+
+  
 }
 
 function renderCountriesItem(contriesArray) {
