@@ -26,20 +26,19 @@ function onInput(evt) {
        (Notify.info("Too many matches found. Please enter a more specific name."));
     }
     if (contriesArray.length >= 2 && contriesArray.length <= 10) {
-
       renderCountriesItem(contriesArray);
     }
     if (contriesArray.length === 1) {
   refs.countryList.innerHTML = '';
       renderCountryInfo(contriesArray);
     } 
-    
-  }).catch((error) => (Notify.failure("Oops, there is no country with that name"))
+  })
+  .catch((error) => (Notify.failure("Oops, there is no country with that name"))
   )
 }
 
 function renderCountriesItem(contriesArray) {
-    refs.countryInfo.innerHTML = '';
+refs.countryInfo.innerHTML = '';
 refs.countryList.innerHTML = '';
  return contriesArray.forEach(element => {
     const name = element.name.official;
@@ -52,24 +51,21 @@ refs.countryList.innerHTML = '';
 }
 
 function renderCountryInfo(contriesArray) {
-  refs.countryInfo.innerHTML = '';
- refs.countryList.innerHTML = '';
-  return contriesArray.forEach(element => {
-    const name = element.name.official;
-    const capital = element.capital[0];
-    const population = element.population;
-    const flag = element.flags.svg;
-    const language = Object.values(element.languages).join(', ');
+refs.countryInfo.innerHTML = '';
+refs.countryList.innerHTML = '';
+    const name = contriesArray[0].name.official;
+    const capital = contriesArray[0].capital[0];
+    const population = contriesArray[0].population;
+    const flag = contriesArray[0].flags.svg;
+    const language = Object.values(contriesArray[0].languages).join(', ');
     const markup = `
     <h2><img src=${flag} width = 80> ${name}</h2>
     <ul>
-    <li><p>Capital: ${capital}</p></li>
-    <li><p>Population: ${population}</p></li>
-    <li><p>Languages: ${language}</p></li>
+    <li><p>Capital: <span>${capital}</span> </p></li>
+    <li><p>Population: <span> ${population}</span></p></li>
+    <li><p>Languages: <span>${language}</span> </p></li>
     </ul>
 `;
     refs.countryInfo.insertAdjacentHTML('beforeend', markup);
-   
-});
 }
 

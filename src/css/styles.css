@@ -25,3 +25,7 @@ body {
   outline: none;
   background-color:lightblue;
 }
+span {
+font-size:30px;
+color:cadetblue;
+}
