@@ -30,6 +30,7 @@ function onInput(evt) {
 }
 
 function appendContriesArray(contriesArray) {
+console.log(contriesArray)
   if (contriesArray.length > 10) {
     refs.countryList.innerHTML = '';
     refs.countryInfo.innerHTML = '';

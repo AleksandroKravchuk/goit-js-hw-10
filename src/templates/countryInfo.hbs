@@ -1,7 +1,7 @@
 {{#with this}}
 <li>
     <img src="{{flags.svg}}" alt="" width="80">
-    <span class="country-name">{{name.official}}</span>
+    <span class="country-value">{{name.official}}</span>
 </li>
 <li class="country-item">Capital:
     <span class="country-value">{{capital}}</span>
@@ -11,7 +11,7 @@
 </li>
 <li class="country-item">Languages:
     <span class="country-value">{{#each languages}}
-        {{#if @last}} {{this}}
+        {{#if @last}} {{@index}}
         {{else}} {{this}},
         {{/if}}
         {{/each}}
